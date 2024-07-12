@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class OrderControll {
     public static Order newOrder(Client client, OrderStatus status){
-        return new Order(status, new Date(), client);
+        return new Order(status, client);
     }
 
     public static void addItens(int n, Order order){

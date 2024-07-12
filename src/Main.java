@@ -13,9 +13,9 @@ public class Main {
         System.out.print("E=mail do cliente: ");
         String email = sc.nextLine();
 
-        Client client = ClientControll.newClient(name, email);
+        Client client = new Client(name, email);
 
-        Order order = OrderControll.newOrder(client, OrderStatus.PROCESSANDO);
+        Order order = new Order(OrderStatus.PROCESSANDO, client);
 
         System.out.print("Quantos itens serão adicionados no pedido? ");
         int n = sc.nextInt();

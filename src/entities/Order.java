@@ -16,9 +16,9 @@ public class Order {
     private List<OrderItem> orderItens = new ArrayList<OrderItem>();
     private Client client;
 
-    public Order(OrderStatus status, Date moment, Client client) {
+    public Order(OrderStatus status, Client client) {
         this.status = status;
-        this.moment = moment;
+        this.moment = new Date();
         this.client = client;
 
         UUID uuid = UUID.randomUUID();
@@ -83,7 +83,9 @@ public class Order {
         String orderData = "\n\nCliente: " + this.client.getName() + "\nEmail: " + this.client.getEmail() + "\nMomento do pedido: " + this.moment + "\nStatus: " + this.status + "\nItens: \n";
 
         for (OrderItem item : orderItens){
-            orderData += item.getProduct().getName() +  ", R$" + item.getProduct().getPrice() + ", " + item.getQuantity() + " unidades\n";
+            int i = 1;
+            orderData += i + ". " + item.getProduct().getName() +  ", R$" + item.getProduct().getPrice() + ", " + item.getQuantity() + " unidades\n";
+            i++;
         }
 
         orderData += "Total do pedido: R$" + this.totalValue();
