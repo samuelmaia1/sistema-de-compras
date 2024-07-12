@@ -20,7 +20,9 @@ public class Main {
         System.out.print("Quantos itens serão adicionados no pedido? ");
         int n = sc.nextInt();
 
-        
+        OrderControll.addItens(n, order);
+
+        System.out.printf("" + order);
 
         sc.close();
     }
